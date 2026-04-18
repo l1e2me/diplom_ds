@@ -1,0 +1,27 @@
+# Core
+torch>=2.0.0
+torchvision>=0.15.0
+transformers>=4.35.0
+accelerate>=0.24.0
+
+# Quantization (4-bit)
+bitsandbytes>=0.41.0
+
+# ONNX
+onnx>=1.14.0
+onnxruntime>=1.16.0
+onnxruntime-gpu>=1.16.0  # опционально, для GPU
+
+# Evaluation & metrics
+numpy>=1.24.0
+psutil>=5.9.0
+tqdm>=4.65.0
+
+# Testing (optional)
+pytest>=7.4.0
+
+# OpenVINO (опционально, для CPU оптимизации)
+openvino-dev>=2023.0.0
+
+# TensorRT (не устанавливается через pip, требуется отдельная установка)
+# См. документацию NVIDIA
