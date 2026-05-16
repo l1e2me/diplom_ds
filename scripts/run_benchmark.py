@@ -8,6 +8,7 @@ import logging
 from src.device_manager import DeviceManager
 from src.model_loader import SberLightningLoader
 from src.benchmark import InferenceBenchmark
+from src.optimizers.tensorrt_optimizer import TensorRTOptimizer
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
@@ -53,6 +54,15 @@ def main():
     for r in results:
         print(f"{r['prompt'][:30]:30} | {r['latency_ms']:7.2f} ± {r['std_ms']:.2f} ms")
     print("="*60)
+
+    ENGINE_PATH = "models/sber_lightning_fp16.engine"
+
+    trt_optimizer = TensorRTOptimizer(ENGINE_PATH)
+
+    input_numpy = np.random.randn(1, 512).astype(np.float32)
+
+    output = trt_optimizer.infer(input_numpy)
+    print("Output shape:", output.shape)
 
 if __name__ == "__main__":
     main()
