@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 pip install -r requirements.txt
 set FORCE_CPU=1
 pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
@@ -14,3 +15,14 @@ cmake --build . --config Release
 trtexec --onnx=path/to/your_model.onnx --saveEngine=models/my_model_fp16.engine --fp16
 
 python -m scripts.run_benchmark
+=======
+pip install -r requirements.txt
+
+set FORCE_CPU=1
+
+pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
+
+pip install transformers accelerate numpy psutil tqdm
+
+python -m scripts.run_benchmark
+>>>>>>> e1d2f5270e0d5f8dfb09d30b3f5a31dfa87e7ed4
